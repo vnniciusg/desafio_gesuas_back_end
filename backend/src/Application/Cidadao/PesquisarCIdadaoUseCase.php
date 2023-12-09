@@ -2,7 +2,7 @@
 
 use App\Domain\Repository\CidadaoRepositoryInterface;
 
-class PesquisarCidadao
+class PesquisarCidadaoUseCase
 {
     private $repository;
 
