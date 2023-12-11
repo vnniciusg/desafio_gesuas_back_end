@@ -13,4 +13,5 @@ services:
     App\Domain\Repository\CidadaoRepositoryInterface: '@App\Infrastructure\Persistence\CidadaoRepository'
     App\Application\Cidadao\CadastrarCidadaoUseCaseInterface: '@App\Application\Cidadao\CadastrarCidadaoUseCase'
     App\Application\Cidadao\PesquisarCidadaoUseCaseInterface: '@App\Application\Cidadao\PesquisarCidadaoUseCase'
-   
+
+
