@@ -1,4 +1,5 @@
 <?php
+namespace App\Infrastructure\Persistence;
 
 use App\Domain\Entity\Cidadao;
 use App\Domain\Repository\CidadaoRepositoryInterface;

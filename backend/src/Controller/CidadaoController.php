@@ -1,5 +1,9 @@
 <?php
+namespace App\Controller;
+
 use App\Domain\Entity\Cidadao;
+use App\Application\Cidadao\CadastrarCidadaoUseCase;
+use App\Application\Cidadao\PesquisarCidadaoUseCase;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;

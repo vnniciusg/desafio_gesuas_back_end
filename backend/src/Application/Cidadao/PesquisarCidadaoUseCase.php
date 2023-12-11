@@ -1,4 +1,5 @@
 <?php
+namespace App\Application\Cidadao;
 
 use App\Domain\Repository\CidadaoRepositoryInterface;
 
