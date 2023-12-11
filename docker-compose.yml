@@ -12,12 +12,23 @@ services:
     volumes:
       - database_data:/var/lib/postgresql/data:rw
     networks:
-      - default
+      - cidadao_network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: frontend
+    container_name: frontend
+    ports:
+      - 5173:5173
+    networks:
+      - cidadao_network
 
 volumes:
   database_data:
 
 
 networks:
-  default:
+  cidadao_network:
     name: ${NETWORK_NAME}
