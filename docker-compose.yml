@@ -1,7 +1,6 @@
 version: '3.8'
 
 services:
-###> doctrine/doctrine-bundle ###
   database:
     image: postgres:${POSTGRES_VERSION:-15}-alpine
     environment:
@@ -12,7 +11,13 @@ services:
       - 5432:5432
     volumes:
       - database_data:/var/lib/postgresql/data:rw
+    networks:
+      - default
 
 volumes:
   database_data:
 
+
+networks:
+  default:
+    name: ${NETWORK_NAME}
