@@ -1,7 +1,0 @@
-cadastrar_cidadao:
-    path: /cidadaos
-    controller: 'App\Presentation\Controller\CidadaoController::cadastrar'
-
-pesquisar_cidadao:
-    path: /cidadaos/{nis}
-    controller: 'App\Presentation\Controller\CidadaoController::pesquisar'

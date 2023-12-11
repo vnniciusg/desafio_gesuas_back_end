@@ -4,13 +4,13 @@ services:
     _defaults:
         autowire: true      
         autoconfigure: true
+
     App\:
-        resource: '../src/'
+        resource: '../src/*'
         exclude:
-            - '../src/DependencyInjection/'
-            - '../src/Entity/'
-            - '../src/Kernel.php'
-        
+            - '../src/{DependencyInjection,Entity,Kernel.php}'
+    
     App\Domain\Repository\CidadaoRepositoryInterface: '@App\Infrastructure\Persistence\CidadaoRepository'
     App\Application\Cidadao\CadastrarCidadaoUseCaseInterface: '@App\Application\Cidadao\CadastrarCidadaoUseCase'
     App\Application\Cidadao\PesquisarCidadaoUseCaseInterface: '@App\Application\Cidadao\PesquisarCidadaoUseCase'
+   
