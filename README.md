@@ -64,7 +64,19 @@ O projeto inclui testes unitários utilizando JUnit. Certifique-se de executar o
 ## Configurações Adicionais
 
 - **Migrações do Banco de Dados:** Se houver alterações no esquema do banco de dados, execute migrações para garantir que estejam sincronizadas com o código-fonte.
-
+     1. Entre no container:
+        ```bash
+        docker exec -it <nome_do_container> /bin/bash
+        ```
+    2. Execute as migrações do Doctrine para criar as tabelas no banco:
+        ```bash
+        php bin/console make:migration
+        ```
+    3. Aplique as migrações ao banco de dados:
+        ```bash
+        php bin/console doctrine:migrations:migrate
+        ```
+     
 - **Front-end:** Forneça informações sobre a estrutura do front-end, como componentes React, configuração do Vite e a utilização do Tailwind CSS.
 
 ### Observações
@@ -85,7 +97,7 @@ Se você encontrar um erro 500 relacionado à incapacidade de escrever no diret�
    Certifique-se de que o diretório `var/log` e seus subdiretórios tenham as permissões corretas para escrita. Você pode ajustar as permissões usando os seguintes comandos:
 
    ```bash
-   chmod -R 775 var/log'
+   chmod -R 775 var/log
    ```
 
    ```bash
