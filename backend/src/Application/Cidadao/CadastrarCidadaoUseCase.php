@@ -13,7 +13,7 @@ class CadastrarCidadaoUseCase
         $this->repository = $cidadaoRepository;
     }
 
-    public function cadastrarCidadao(Cidadao $cidadao) : bool
+    public function cadastrarCidadao(Cidadao $cidadao) : ?Cidadao
     {
         return $this->repository->salvarCidadao($cidadao);
     }

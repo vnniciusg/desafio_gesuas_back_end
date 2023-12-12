@@ -14,14 +14,14 @@ class CidadaoRepository implements CidadaoRepositoryInterface
         $this->entityManager = $entityManager;
     }
 
-    public function salvarCidadao(Cidadao $cidadao) : bool
+    public function salvarCidadao(Cidadao $cidadao) : ?Cidadao
     {
         try{
             $this->entityManager->persist($cidadao);
             $this->entityManager->flush();
-            return true;
+            return $cidadao;
         }catch(\Exception $e){
-            return false;
+            return null;
         }
         
     }

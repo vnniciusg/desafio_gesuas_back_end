@@ -33,11 +33,16 @@ class CidadaoController extends AbstractController
      *   ),
      *   @OA\Response(
      *         response=201,
-     *        description="Cidadao cadastrado com sucesso",
-     *       @OA\JsonContent(
-     *          @OA\Property(property="success", type="string", example="Cidadao cadastrado com sucesso")
-     *      )
-     *   ),
+     *         description="Cidadao cadastrado com sucesso",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="success", type="string", example="Cidadao cadastrado com sucesso"),
+     *             @OA\Property(property="data", type="object",
+     *                 @OA\Property(property="nome", type="string", example="John Doe"),
+     *                 @OA\Property(property="nis", type="string", example="12345678901"),
+     *                 @OA\Property(property="id", type="integer", example="1")
+     *             )
+     *         )
+     *     ),
      *   @OA\Response(
      *        response=400,
      *       description="Nome inválido",
@@ -64,9 +69,19 @@ class CidadaoController extends AbstractController
         $cidadao = new Cidadao($nome);
         $useCase->cadastrarCidadao($cidadao);
 
-        return new JsonResponse (
-            ['success' => 'Cidadao cadastrado com sucesso'], 
-            Response::HTTP_CREATED, ['Content-Type' => 'application/json;charset=UTF-8]']);
+        return new JsonResponse(
+            [
+                'success' => 'Cidadao cadastrado com sucesso',
+                'data' => [
+                    'nome' => $cidadao->getNome(),
+                    'nis' => $cidadao->getNis(),
+                    'id' => $cidadao->getId(),
+                ],
+            ],
+            Response::HTTP_OK,
+            ['Content-Type' => 'application/json;charset=UTF-8']
+        );
+
     }
 
 
