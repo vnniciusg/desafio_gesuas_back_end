@@ -13,7 +13,8 @@ class CidadaoRepositoryTest extends TestCase
         $entityManager = $this->createMock(EntityManagerInterface::class);
 
         $entityManager->expects($this->once())
-            ->method('persist');
+            ->method('persist')
+            ->with($this->isInstanceOf(Cidadao::class));
 
         $entityManager->expects($this->once())
             ->method('flush');
@@ -21,8 +22,8 @@ class CidadaoRepositoryTest extends TestCase
         $repository = new CidadaoRepository($entityManager);
 
         $cidadao = $this->createMock(Cidadao::class);
-        $result = $repository->salvarCidadao($cidadao);
 
+        $result = $repository->salvarCidadao($cidadao);
         $this->assertTrue($result);
     }
 
@@ -46,4 +47,7 @@ class CidadaoRepositoryTest extends TestCase
 
         $this->assertInstanceOf(Cidadao::class, $result);
     }
+
+    
+   
 }
