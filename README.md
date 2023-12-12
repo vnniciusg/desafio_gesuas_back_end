@@ -39,8 +39,8 @@ Este projeto inclui um arquivo `docker-compose.yml` que facilita a execução do
 ### Acesso aos Serviços
 
 - **Back-end Symfony:** Acesse [http://localhost:8000](http://localhost:8000)
-- **Front-end:** Acesse [[http://localhost:8080](http://localhost:5173/)](http://localhost:5173/)
-- **Documentação da API:** Acesse [[http://localhost:8000/api/doc](http://localhost:8000/api/doc)](http://localhost:8000/api/doc)
+- **Front-end:** Acesse [http://localhost:8080](http://localhost:5173/)
+- **Documentação da API:** Acesse [http://localhost:8000/api/doc](http://localhost:8000/api/doc)
 - **Banco de Dados PostgreSQL:** Conecte-se ao host `localhost` na porta `5432` usando as credenciais configuradas no arquivo `.env`.
 
 
