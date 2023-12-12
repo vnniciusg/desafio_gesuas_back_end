@@ -16,15 +16,24 @@ class CidadaoRepository implements CidadaoRepositoryInterface
 
     public function salvarCidadao(Cidadao $cidadao) : bool
     {
-        $this->entityManager->persist($cidadao);
-        $this->entityManager->flush();
-        return true;
+        try{
+            $this->entityManager->persist($cidadao);
+            $this->entityManager->flush();
+            return true;
+        }catch(\Exception $e){
+            return false;
+        }
+        
     }
 
 
     public function buscarCidadaoPorNis(string $nis) : ?Cidadao
     {
-        return $this->entityManager->getRepository(Cidadao::class)->findOneBy(['nis' => $nis]);
+        try{
+            return $this->entityManager->getRepository(Cidadao::class)->findOneBy(['nis' => $nis]);
+        }catch(\Exception $e){
+            return null;
+        }
     }
 
     public function __toString()
