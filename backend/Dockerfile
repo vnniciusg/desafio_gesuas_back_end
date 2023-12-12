@@ -1,27 +1,34 @@
-FROM php:8.1-fpm
-
-RUN apt-get update \
-    && apt-get install -y \
-        git \
-        unzip \
-        libzip-dev \
-        libicu-dev \
-        libpq-dev \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN docker-php-ext-install pdo_mysql zip intl opcache pdo_pgsql
-
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+FROM php:8.1-apache
 
 WORKDIR /var/www/html
 
-COPY . .
+COPY . /var/www/html
 
-RUN composer install --no-scripts --no-autoloader
+RUN apt-get update && \
+    apt-get install -y \
+        libzip-dev \
+        unzip \
+        git \
+        libpq-dev \
+    && rm -rf /var/lib/apt/lists/* \
+    && docker-php-ext-install zip pdo_mysql pdo_pgsql
 
-RUN composer dump-autoload --optimize --no-dev --classmap-authoritative
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-EXPOSE 8001
+RUN composer install
 
-CMD ["php-fpm"]
+RUN chown -R www-data:www-data /var/www/html
+
+RUN chown -R www-data:www-data /var/www/html/var/log
+
+RUN chmod -R 775 /var/www/html/var/log
+
+RUN a2enmod rewrite
+
+COPY apache-config.conf /etc/apache2/sites-available/000-default.conf
+
+RUN a2ensite 000-default.conf
+
+EXPOSE 80
+
+CMD ["apache2-foreground"]
