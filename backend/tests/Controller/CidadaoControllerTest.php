@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Tests\Controller;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\Panther\PantherTestCase;
 
-class CidadaoControllerTest extends WebTestCase
+class CidadaoControllerTest extends PantherTestCase
 {
     public function testCadastrarCidadao() : void
     {
