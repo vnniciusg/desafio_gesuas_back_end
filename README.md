@@ -1,4 +1,4 @@
-## Docker Compose
+## Desafio GESUAS BACK-END
 
 Este projeto inclui um arquivo `docker-compose.yml` que facilita a execução do back-end (Symfony), front-end e banco de dados PostgreSQL em ambientes isolados com Docker. Siga as instruções abaixo para configurar e iniciar os contêineres Docker.
 
