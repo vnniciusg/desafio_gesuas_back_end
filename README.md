@@ -1,4 +1,4 @@
-## Docker Compose
+## Desafio GESUAS BACK-END
 
 Este projeto inclui um arquivo `docker-compose.yml` que facilita a execução do back-end (Symfony), front-end e banco de dados PostgreSQL em ambientes isolados com Docker. Siga as instruções abaixo para configurar e iniciar os contêineres Docker.
 
@@ -39,8 +39,33 @@ Este projeto inclui um arquivo `docker-compose.yml` que facilita a execução do
 ### Acesso aos Serviços
 
 - **Back-end Symfony:** Acesse [http://localhost:8000](http://localhost:8000)
-- **Front-end:** Acesse [http://localhost:8080](http://localhost:8080)
+- **Front-end:** Acesse [http://localhost:8080](http://localhost:5173/)
+- **Documentação da API:** Acesse [http://localhost:8000/api/doc](http://localhost:8000/api/doc)
 - **Banco de Dados PostgreSQL:** Conecte-se ao host `localhost` na porta `5432` usando as credenciais configuradas no arquivo `.env`.
+
+
+## Arquitetura
+
+O projeto segue uma arquitetura baseada em Clean Architecture, dividindo as responsabilidades entre APPLICATION, DOMAIN, INFRA, e CONTROLLERS.
+
+## Tecnologias Utilizadas
+
+- Symfony (PHP)
+- React + Vite + Tailwind CSS (Front-end)
+- PostgreSQL (Banco de Dados)
+- Doctrine ORM
+- PHPUnit
+- Nelmio API
+
+## Testes
+
+O projeto inclui testes unitários utilizando JUnit. Certifique-se de executar os testes regularmente e manter uma boa cobertura de testes.
+
+## Configurações Adicionais
+
+- **Migrações do Banco de Dados:** Se houver alterações no esquema do banco de dados, execute migrações para garantir que estejam sincronizadas com o código-fonte.
+
+- **Front-end:** Forneça informações sobre a estrutura do front-end, como componentes React, configuração do Vite e a utilização do Tailwind CSS.
 
 ### Observações
 
