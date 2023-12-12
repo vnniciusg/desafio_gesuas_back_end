@@ -75,4 +75,24 @@ O projeto inclui testes unitários utilizando JUnit. Certifique-se de executar o
 
 ---
 
+# Troubleshooting
+
+## Erro 500 - Unable to Write in the "logs" Directory
+
+Se você encontrar um erro 500 relacionado à incapacidade de escrever no diretório "logs", siga estas etapas para corrigir:
+
+1. **Permissões do Diretório:**
+   Certifique-se de que o diretório `var/log` e seus subdiretórios tenham as permissões corretas para escrita. Você pode ajustar as permissões usando os seguinte comando:
+
+   ```bash
+   chmod -R 775 var/log'
+   ```
+
+   ```bash
+   chown -R www-data:www-data var/log
+   ```
+   ```bash
+   php bin/console cache:clear
+   ```
+
 **Nota:** Certifique-se de ter o Docker e o Docker Compose instalados antes de executar os comandos acima.
