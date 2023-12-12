@@ -54,6 +54,7 @@ O projeto segue uma arquitetura baseada em Clean Architecture, dividindo as resp
 - React + Vite + Tailwind CSS (Front-end)
 - PostgreSQL (Banco de Dados)
 - Doctrine ORM
+- PHPUnit
 - Nelmio API
 
 ## Testes
