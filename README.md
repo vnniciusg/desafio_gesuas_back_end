@@ -82,7 +82,7 @@ O projeto inclui testes unitários utilizando JUnit. Certifique-se de executar o
 Se você encontrar um erro 500 relacionado à incapacidade de escrever no diretório "logs", siga estas etapas para corrigir:
 
 1. **Permissões do Diretório:**
-   Certifique-se de que o diretório `var/log` e seus subdiretórios tenham as permissões corretas para escrita. Você pode ajustar as permissões usando os seguinte comando:
+   Certifique-se de que o diretório `var/log` e seus subdiretórios tenham as permissões corretas para escrita. Você pode ajustar as permissões usando os seguintes comandos:
 
    ```bash
    chmod -R 775 var/log'
