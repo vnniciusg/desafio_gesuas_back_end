@@ -21,7 +21,9 @@ class Cidadao
     private $nis;
     
     public function __construct($name)
-    {
+    {   if (empty($name)) {
+            throw new \InvalidArgumentException('Nome não pode ser nulo');
+        }
         $this->name = $name;
     }
 
@@ -48,7 +50,7 @@ class Cidadao
         return $this->nis;
     }
 
-    private function generateUniqueNis(): string
+    public function generateUniqueNis(): string
     {
         $nisCode = str_pad(mt_rand(1, 99999999999), 11, '0', STR_PAD_LEFT);
         return $nisCode;
